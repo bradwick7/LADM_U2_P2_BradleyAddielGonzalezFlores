@@ -1,16 +1,18 @@
 package com.example.ladm_u2_p2_bradleyaddielgonzalezflores
 
+import android.R.array
 import android.graphics.Color
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ladm_u2_p2_bradleyaddielgonzalezflores.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -161,7 +163,20 @@ class MainActivity : AppCompatActivity() {
             for (i in 0..53) {
                 indices[i] = i
             }
-            indices.shuffle()
+            for (i in indices.size - 1 downTo 1) {
+                var random = Random.nextInt(i + 1)
+                var temp = indices[random]
+                indices[random] = indices[i]
+                indices[i] = temp
+                println("${indices[i]} ")
+            }
+
+//            println("COMPROBAR HACIENDO SORT =========================================")
+//            indices.sort()
+//            for (i in 0..53) {
+//                println("${indices[i]} ")
+//            }
+
             // Iniciamos
             tirar = GlobalScope.launch(EmptyCoroutineContext, CoroutineStart.LAZY) {
                 for (i in 0..53) {
@@ -269,7 +284,7 @@ class hilo(activity: MainActivity) : Thread() {
             var audio =
                 MediaPlayer.create(pointer.applicationContext, R.raw.newgame)
             audio.start()
-            audio.setOnCompletionListener { mp -> mp.release()  }
+            audio.setOnCompletionListener { mp -> mp.release() }
         } catch (e: Exception) {
             println(e.message)
         }
