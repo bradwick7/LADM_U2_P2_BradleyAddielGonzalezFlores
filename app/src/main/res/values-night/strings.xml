@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="header">Lotería Mexicana</string>
-    <string name="comenzar_juego">mainBtn</string>
+    <string name="app_name">LADM_U2_P2_BradleyAddielGonzalezFlores</string>
 </resources>
