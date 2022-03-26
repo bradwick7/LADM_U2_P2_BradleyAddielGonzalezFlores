@@ -163,12 +163,13 @@ class MainActivity : AppCompatActivity() {
             for (i in 0..53) {
                 indices[i] = i
             }
+            println("Random indexes ==============================")
             for (i in indices.size - 1 downTo 1) {
                 var random = Random.nextInt(i + 1)
                 var temp = indices[random]
                 indices[random] = indices[i]
                 indices[i] = temp
-                println("${indices[i]} ")
+                println("Carta: $i = ${indices[i]} ")
             }
 
 //            println("COMPROBAR HACIENDO SORT =========================================")
